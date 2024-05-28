@@ -1,13 +1,13 @@
 <?php
+require_once 'config.php';
 switch ($_REQUEST["acao"]) {
     case 'cadastrar':
         $nome = $_POST["nome"];
         $email = $_POST["email"];
         $senha = $_POST["senha"];
-        $data_nasc = $_POST["data_nasc"];
         break;
 
-        $slque = "INSERT INTO usuarios (nome, email, senha, data_nasc) VALUES ('{$nome}', '{$email}', '{$senha}' '{$data_nasc}')";
+        $slque = "INSERT INTO tabela_usuarios (nome, email, senha) VALUES ('{$nome}', '{$email}', '{$senha}' )";
 
         $res = $conn->query($sql);
 

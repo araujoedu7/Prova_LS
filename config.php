@@ -7,9 +7,9 @@ define('BASE', 'crudUsuarios');
 
 $conn = new MySQLi(HOST,USER,PASS,BASE);
 
-// if(isset($conn)){
-//     echo 'conectado com sucesso';
+// if($conn->connect_errno){
+//     echo 'erro';
 // }else{
-//     echo 'nao conectado';
+//     echo 'conectado';
 // }
 
