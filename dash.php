@@ -29,7 +29,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="?page=listar">Listar usuario</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=listar">Sair</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -51,6 +53,7 @@
                         include("salvar-usuario.php");
                     default:
                         print "<h1> Bem vindo!</h1>";
+                        
                 }
                 ?>
 

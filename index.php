@@ -14,15 +14,15 @@
     <div class="container mt-5">
         <div class="row aling-items-center">
             <div class="col-md-10 mx-auto col-lg-5 ">
-                <form action="" class="p-4 p-md-5 border rounder-3 bg-light border rounded" >
+                <form action="index.php" class="p-4 p-md-5 border rounder-3 bg-light border rounded" >
                     <div class="form-floater">
                         <label for="loginName">Email</label>
-                        <input type="email" class="form-control" id="loginName" placeholder="Usuario">
+                        <input type="email" name="email" class="form-control" id="loginName" placeholder="Usuario">
                     </div>
 
                     <div class="form-floater">
                         <label for="loginSenha">Senha</label>
-                        <input type="password" class="form-control" id="loginPassword" placeholder="Senha">
+                        <input type="password" class="form-control" name="senha" id="loginPassword" placeholder="Senha">
                     </div>
 
                     <div class="checkbox">
@@ -37,5 +37,19 @@
     </div>
 
 </body>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verifica se as chaves 'email' e 'senha' estão definidas no array $_POST
+    if (isset($_POST['email'], $_POST['senha'])) {
+        $login = $_POST['email'];
+        $senha = $_POST['senha'];
+        // Verifique as credenciais e redirecione para a página de dashboard (dash.php) se estiverem corretas
+        // (Você deve implementar essa lógica de autenticação)
+        header("Location: dash.php");
+        exit; // Importante: encerre a execução após o redirecionamento
+    }
+}
+?>
 
 </html>
+
