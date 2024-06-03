@@ -1,5 +1,5 @@
 <?php
-require_once ("config.php");
+require_once ("../config.php");
 
 
 
@@ -13,7 +13,7 @@ require_once ("config.php");
                 mysqli_query($conn, $sql);
                 if(isset($sql)){
                         echo "usuario cadastrado: " ;
-                        
+                        header("location:../dash.php");
 
                 }else{
                     echo "usuario nao cadastrado";

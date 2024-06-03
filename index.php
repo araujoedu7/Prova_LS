@@ -1,3 +1,9 @@
+<?php 
+session_start();
+require_once("config.php");
+
+?>
+
 <!doctype html>
 <html lang="pt-br" data-bs-theme="light">
 
@@ -38,4 +44,8 @@
     
 </body>
 </html>
-
+<?php
+    $sql = "SELECT email, senha FROM tabela_usuarios WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $usuario_id);
+?>

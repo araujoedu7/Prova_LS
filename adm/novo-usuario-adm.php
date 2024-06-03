@@ -19,7 +19,7 @@
         <div class="row aling-items-center">
             <div class="col-md-10 mx-auto col-lg-5 ">
             <p class="h2">Cadastre-se</p>
-            <form action="salvar-usuario-adm.php" method="POST">
+            <form action="./adm/salvar-usuario-adm.php" method="POST">
         <input type="hidden" name="acao" value="cadastrar">
         <div class="mb-3">
             <label>Nome</label>
