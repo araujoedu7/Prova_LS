@@ -44,13 +44,13 @@
                 include("config.php");
                 switch (@$_REQUEST["page"]) {
                     case "novo":
-                        include("novo-usuario.php");
+                        include("./adm/novo-usuario-adm.php");
                         break;
                     case "listar":;
                         include("listar-usuario.php");
                         break;
                     case "salvar":
-                        include("salvar-usuario.php");
+                        include("salvar-usuario-adm.php");
                     default:
                         print "<h1> Bem vindo!</h1>";
                         

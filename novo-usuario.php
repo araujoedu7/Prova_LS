@@ -1,6 +1,6 @@
 <?php 
-    // session_start();
-    // require_once ('config.php');
+    session_start();
+    require_once ('config.php');
 ?>
 <!doctype html>
 <html lang="pt-br" data-bs-theme="light">
@@ -19,7 +19,7 @@
         <div class="row aling-items-center">
             <div class="col-md-10 mx-auto col-lg-5 ">
             <p class="h2">Cadastre-se</p>
-            <form action="?page-salvar" method="POST">
+            <form action="salvar-usuario.php" method="POST">
         <input type="hidden" name="acao" value="cadastrar">
         <div class="mb-3">
             <label>Nome</label>
@@ -34,7 +34,7 @@
             <input type="password" name="senha" class="form-control">
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-success">Enviar</button>
+            <input type="submit" class="btn btn-success" value="Enviar">
             <p>Já tem uma conta? <a class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="index.php">Entrar</a> </p>
         </div>
 
@@ -50,8 +50,7 @@
 
 
 
-// session_start();
-// require_once('config.php');
+
 
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //     if (isset($_POST['nome'], $_POST['email'], $_POST['senha'])) {

@@ -1,21 +1,23 @@
 <?php
-require_once 'config.php';
-switch ($_REQUEST["acao"]) {
-    case 'cadastrar':
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
-        break;
+require_once ("config.php");
 
-        $slque = "INSERT INTO tabela_usuarios (nome, email, senha) VALUES ('{$nome}', '{$email}', '{$senha}' )";
 
-        $res = $conn->query($sql);
 
-    case 'editar':
-        # code...
-        break;
+    if (isset($_POST['nome'], $_POST['email'], $_POST['senha'])) {
+                $nomeUser = mysqli_real_escape_string($conn, $_POST['nome']);
+                $emailUser = mysqli_real_escape_string($conn, $_POST['email']);
+                $senhaUser = mysqli_real_escape_string($conn, $_POST['senha']);
+                $niveis_acesso = 2;
 
-    case 'salvar':
-        # code...
-        break;
+                $sql = "INSERT INTO tabela_usuarios (nome, email, senha, niveis_acesso) VALUES ('$nomeUser','$emailUser' , '$senhaUser', '$niveis_acesso')";
+                mysqli_query($conn, $sql);
+                if(isset($sql)){
+                        echo "usuario cadastrado: " ;
+                        header("location:index.php");
+
+                }else{
+                    echo "usuario nao cadastrado";
+                    header("location:index.php");
+                }
 }
+
