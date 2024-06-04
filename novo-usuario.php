@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require_once ('config.php');
+    include('config.php');
 ?>
 <!doctype html>
 <html lang="pt-br" data-bs-theme="light">

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once("config.php");
+include("config.php");
 
 ?>
 
@@ -32,7 +32,7 @@ require_once("config.php");
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-success">Entrar</button>
-            <p>Não tem uma conta? <a class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="novo-usuario.php">Entrar</a> </p>
+            <p>Não tem uma conta? <a class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="novo-usuario.php">Cadastre-se.</a> </p>
         </div>
 
     </form>
@@ -44,8 +44,12 @@ require_once("config.php");
     
 </body>
 </html>
+
 <?php
-    $sql = "SELECT email, senha FROM tabela_usuarios WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $usuario_id);
+    if(isset($_POSt['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])){
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+    }
+
+    $sql = "SELECT * FROM tabela_usuarios WHERE email = $email and senha = $senha"
 ?>

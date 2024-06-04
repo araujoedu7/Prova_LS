@@ -12,3 +12,6 @@ CREATE TABLE tabela_usuarios (
     senha VARCHAR(255) NOT NULL,
     niveis_acesso INT NOT NULL
 );
+
+INSERT INTO tabela_usuarios (nome, email, senha, niveis_acesso)
+VALUES ('Eduardo', 'ea144027@gmail.com', '1234', 1);
