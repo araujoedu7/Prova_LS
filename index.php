@@ -2,7 +2,44 @@
 session_start();
 include("config.php");
 
+if(isset($_POST['email']) && isset($_POST['senha'])) {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $query = "SELECT * FROM tabela_usuarios WHERE email = '$email' AND senha = '$senha'";
+    $result = mysqli_query($conn, $query);
+
+}
+
+
+if (isset($_POST['email']) && isset($_POST['senha'])) {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $query = "SELECT * FROM tabela_usuarios WHERE email = '$email' AND senha = '$senha'";
+    $result = mysqli_query($conn, $query);
+
+    if (mysqli_num_rows($result) == 1) {
+        $usuario = mysqli_fetch_assoc($result);
+        $_SESSION['usuario_id'] = $usuario['id'];
+        $_SESSION['usuario_nome'] = $usuario['nome'];
+        $_SESSION['usuario_niveis_acesso'] = $usuario['niveis_acesso'];
+
+        // Redireciona com base no ID do usuário
+        if ($usuario['id'] == 1) {
+            header('Location: ./adm/dash-adm.php');
+        } else {
+            header('Location: dash.php');
+        }
+        exit();
+    } else {
+        echo "Email ou senha inválidos.";
+    }
+}
+
 ?>
+
+
 
 <!doctype html>
 <html lang="pt-br" data-bs-theme="light">
@@ -12,6 +49,7 @@ include("config.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Faça Login!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./assets/afs-logo-aside.png" type="image/x-icon">
 </head>
 
 <body bg-body-tertiary>
@@ -34,7 +72,7 @@ include("config.php");
             <button type="submit" class="btn btn-success">Entrar</button>
             <p>Não tem uma conta? <a class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="novo-usuario.php">Cadastre-se.</a> </p>
         </div>
-
+   
     </form>
                
             </div>
@@ -44,7 +82,7 @@ include("config.php");
     
 </body>
 </html>
-
+<!-- 
 <?php
     if(isset($_POSt['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])){
         $email = $_POST["email"];
@@ -52,4 +90,4 @@ include("config.php");
     }
 
     $sql = "SELECT * FROM tabela_usuarios WHERE email = $email and senha = $senha"
-?>
+?> -->
