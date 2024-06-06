@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Faça seu  Cadastro!</title>
+    <link rel="shortcut icon" href="./assets/afs-logo-aside.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -52,37 +53,4 @@
 
 
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     if (isset($_POST['nome'], $_POST['email'], $_POST['senha'])) {
-//         $nomeUser = mysqli_real_escape_string($conn, $_POST['nome']);
-//         $emailUser = mysqli_real_escape_string($conn, $_POST['email']);
-//         $senhaUser = mysqli_real_escape_string($conn, $_POST['senha']);
-
-//         // Consulta SQL usando prepared statement
-//         $sql = "INSERT INTO tabela_usuarios (nomeUser, emailUser, senhaUser) VALUES ('nomeUser','emailUser' , 'senhaUser')";
-//         $stmt = mysqli_prepare($conn, $sql);
-//         mysqli_stmt_bind_param($stmt, 'sss', $nomeUser, $emailUser, $senhaUser);
-
-//         if (mysqli_stmt_execute($stmt)) {
-//             echo 'Cadastrado com sucesso!';
-//         } else {
-//             echo 'Erro na inserção: ' . mysqli_error($conn);
-//         }
-
-//         mysqli_stmt_close($stmt);
-//     }
-// }
-
-// $nomeUser = $_POST['nome'];
-// $emailUser = $_POST['email'];
-// $senhaUser = $_POST['senha'];
-
-// $sql = "INSERT INTO tabela_usuarios (nomeUser, emailUser, senhaUser) VALUES ('$nomeUser', '$emailUser', '$senhaUser' )";
-// mysqli_query($conn, $sql);
-
-// if(isset($sql)){
-//     echo 'Cadastrado';
-    
-// }
-?>
 

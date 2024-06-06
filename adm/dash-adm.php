@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("../config.php");
 ?>
 
@@ -11,7 +10,8 @@ include("../config.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bem-vindo - painel admistrativo!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
+    <link rel="shortcut icon" href="./assets/afs-logo-aside.png" type="image/x-icon">
+</head>
   <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -22,7 +22,7 @@ include("../config.php");
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="dash.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="dash-adm.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=novo">Novo
@@ -39,6 +39,7 @@ include("../config.php");
             </div>
         </div>
     </nav>
+
     <div class="container">
         <div class="row">
             <div class="col mt-5">
@@ -46,8 +47,13 @@ include("../config.php");
 
                 switch (@$_REQUEST["page"]) {
                     case "listar":;
-                        include("listar-usuario.php");
+                        include("listar-usuario-adm.php");
                         break;
+
+                        case "novo":;
+                        include("novo-usuario-adm.php");
+                        break;
+
                     case "salvar":
                         include("salvar-usuario-adm.php");
                     default:

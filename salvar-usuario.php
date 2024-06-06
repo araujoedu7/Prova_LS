@@ -7,6 +7,7 @@ include("config.php");
                 $nomeUser = mysqli_real_escape_string($conn, $_POST['nome']);
                 $emailUser = mysqli_real_escape_string($conn, $_POST['email']);
                 $senhaUser = mysqli_real_escape_string($conn, $_POST['senha']);
+                $senha = md5($senha);
                 $niveis_acesso = 2;
 
                 $sql = "INSERT INTO tabela_usuarios (nome, email, senha, niveis_acesso) VALUES ('$nomeUser','$emailUser' , '$senhaUser', '$niveis_acesso')";

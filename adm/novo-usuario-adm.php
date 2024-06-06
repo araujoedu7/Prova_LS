@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require_once ('config.php');
+    require_once ('../config.php');
 ?>
 <!doctype html>
 <html lang="pt-br" data-bs-theme="light">
@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Faça seu  Cadastro!</title>
+    <link rel="shortcut icon" href="../assets/afs-logo-aside.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -19,7 +20,7 @@
         <div class="row aling-items-center">
             <div class="col-md-10 mx-auto col-lg-5 ">
             <p class="h2">Cadastre-se</p>
-            <form action="./adm/salvar-usuario-adm.php" method="POST">
+            <form action="salvar-usuario-adm.php" method="POST">
         <input type="hidden" name="acao" value="cadastrar">
         <div class="mb-3">
             <label>Nome</label>

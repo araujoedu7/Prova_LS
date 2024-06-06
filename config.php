@@ -2,7 +2,7 @@
 
 define('HOST', 'localhost');
 define('USER', 'root');
-define('PASS', '123456789');
+define('PASS', '');
 define('BASE', 'crudusuarios');
 
 $conn = new MySQLi(HOST,USER,PASS,BASE);
