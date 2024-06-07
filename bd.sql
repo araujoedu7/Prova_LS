@@ -16,4 +16,3 @@ CREATE TABLE tabela_usuarios (
 INSERT INTO tabela_usuarios (nome, email, senha, niveis_acesso)
 VALUES ('Eduardo', 'ea144027@gmail.com', '1234', 1);
 
-VARCHAR nbuf UNIQUEkey (nome, password)

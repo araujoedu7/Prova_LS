@@ -21,8 +21,6 @@
                    <th scope="col">id</th>
                    <th scope="col">Nome</th>
                    <th scope="col">Email</th>
-                   <th scope="col">Senha</th>
-                   <th scope="col">Editar</th>
                </tr>
            </thead>
            <tbody class="table-group-divider">
@@ -31,13 +29,8 @@
                 while ($dados = $sql->fetch_object()) { ?>
                    <tr>
                        <th scope="row">1</th>
-                       <td>Mark</td>
-                       <td>Otto</td>
-                       <td>@mdo</td>
-                       <td>
-                           <a class="btn btn-small btn-warning"> <i class="fa-solid fa-pen-to-square"></i> </a>
-                           <a class="btn btn-small btn-danger"> <i class="fa-solid fa-trash-can"></i> </a>
-                       </td>
+                       <td><?= $dados->nome?></td>
+                       <td><?= $dados->email?></td>
                    </tr>
                <?php }
                 ?>
