@@ -1,5 +1,6 @@
 <?php
 include_once("../config.php");
+
 ?>
 
 <!doctype html>
@@ -15,44 +16,96 @@ include_once("../config.php");
 
 <body>
 
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="dash.php">Cadastro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="dash-adm.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=novo">Novo
+                            Usuario
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?page=listar">Listar usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.php">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col mt-5">
+                <?php
+
+                switch (@$_REQUEST["page"]) {
+                    case "listar":;
+                        include_once "listar-usuario-adm.php";
+                        break;
+
+                        case "novo":;
+                        include("novo-usuario-adm.php");
+                        break;
+
+                    case "salvar":
+                        include("salvar-usuario-adm.php");
+                    default:
+                        print "<h1> Bem vindo!</h1>";
+                        
+                }
+                ?>
+
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
     <?php
-    include("../controllers/deletar-usuario.php")
+    include("../controllers/excluir_usuario.php")
     ?>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">id</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Email</th>
-            <th scope="col">Senha</th>
-            <th scope="col">Editar</th>
-        </tr>
-    </thead>
-    <tbody class="table-group-divider">
-        <?php
-        $sql = $conn->query("SELECT * FROM tabela_usuarios");
-        while ($dados = $sql->fetch_object()) { ?>
+    <table class="table">
+        <thead>
             <tr>
-                <td><?= $dados->id ?></td>
-                <td><?= $dados->nome ?></td>
-                <td><?= $dados->email ?></td>
-                <td><?= $dados->senha ?></td>
-                <td>
-                    <a href="editar_usuario-adm.php?id=<?= $dados->id ?>" class="btn btn-small btn-warning"> <i class="fa-solid fa-pen-to-square"></i> </a>
-                    <a href="excluir_usuario.php?id=<?= $dados->id ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
-                </td>
+                <th scope="col">id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Editar</th>
             </tr>
-        <?php }
-        ?>
-    </tbody>
-</table>
-
-
-
-
+        </thead>
+        <tbody class="table-group-divider">
+            <?php
+            $sql = $conn->query("SELECT * FROM tabela_usuarios");
+            while ($dados = $sql->fetch_object()) { ?>
+                <tr>
+                    <td><?= $dados->id ?></td>
+                    <td><?= $dados->nome ?></td>
+                    <td><?= $dados->email ?></td>
+                    <td><?= $dados->senha ?></td>
+                    <td>
+                        <a href="editar_usuario-adm.php?id=<?= $dados->id ?>" class="btn btn-small btn-warning"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                        <a href="../controllers/excluir_usuario.php?id=<?= $dados->id ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+            <?php }
+            ?>
         </tbody>
+    </table>
+
+
+
+
+    </tbody>
     </table>
 
 

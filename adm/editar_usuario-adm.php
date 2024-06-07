@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../config.php');
-include('../controllers/deletar-usuario.php');
+// include('../controllers/excluir_usuario.php');
 ?>
 
 

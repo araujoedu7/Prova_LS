@@ -1,8 +1,8 @@
 <?php
 
 if (!empty($_POST['editar'])) {
-    if (!empty($_POST['nome']) and !empty($_POST['email']) and !empty($_POST['senha'])) {
-        $id = $_POST['id'];
+    if (!empty($_POST['nome']) and !empty($_POST['email']) and !empty($_POST['senha']) and !empty($_GET['id'])) {
+        $id = $_GET['id'];
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];

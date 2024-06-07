@@ -14,6 +14,7 @@ if(isset($_GET['id'])) {
     // Executa a consulta
     if($conn->query($query) === TRUE) {
         echo "Usuário deletado com sucesso.";
+        header("Location:../adm/listar-usuario-adm.php");
     } else {
         echo "Erro ao deletar usuário: " . $conn->error;
     }
