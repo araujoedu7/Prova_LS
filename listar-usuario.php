@@ -28,7 +28,7 @@
                 $sql = $conn->query("SELECT * FROM tabela_usuarios");
                 while ($dados = $sql->fetch_object()) { ?>
                    <tr>
-                       <th scope="row">1</th>
+                       <td><?= $dados->id?></td>
                        <td><?= $dados->nome?></td>
                        <td><?= $dados->email?></td>
                    </tr>
